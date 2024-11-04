@@ -42,16 +42,20 @@ public class Controller : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.x, rb.velocity.z), 0);
             }
         }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
     }
 
     public void Movement(InputAction.CallbackContext context)
     {
-        if (!isShooting) movementInput = context.ReadValue<Vector2>();
+        movementInput = context.ReadValue<Vector2>();
     }
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isShooting)
         {
             StartCoroutine(Shoot());
             rb.velocity = Vector3.zero;
@@ -76,9 +80,8 @@ public class Controller : MonoBehaviour
 
         animator.SetBool("IsShooting", true);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
 
-        movementInput = Vector2.zero;
         nowDirection = Vector2.zero;
 
         animator.SetBool("IsShooting", false);
@@ -96,8 +99,8 @@ public class Controller : MonoBehaviour
     // Make your player move smoothly
     void UpdateDirection()
     {
-        if (movementInput == Vector2.zero)
-            nowDirection = Vec2Interpolation(movementInput, nowDirection, 0.4f);
+        if (isShooting)
+            nowDirection = Vec2Interpolation(Vector2.zero, nowDirection, 0.4f);
         else
             nowDirection = Vec2Interpolation(movementInput, nowDirection, 0.4f);
     }
