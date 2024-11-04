@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,7 +12,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private int curHP = 100;
 
-    [SerializeField]
     private HpBar HpSprite;
     void Awake()
     {
@@ -26,9 +25,10 @@ public class PlayerHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     void Start()
     {
+        HpSprite = FindObjectOfType<HpBar>();
         HpSprite.UpdateHP(curHP, totalHP);
     }
 
@@ -46,13 +46,11 @@ public class PlayerHealth : MonoBehaviour
     {
         curHP -= damage;
         curHP = Mathf.Max(curHP, 0);
-        HpSprite.UpdateHP(curHP, totalHP);
     }
 
     public void Healed(int heal)
     {
         curHP += heal;
         curHP = Mathf.Min(curHP, totalHP);
-        HpSprite.UpdateHP(curHP, totalHP);
     }
 }

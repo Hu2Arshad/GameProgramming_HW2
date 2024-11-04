@@ -10,11 +10,14 @@ public class EnemyHitPlayer : MonoBehaviour
     private GameObject manager;
     private float lastAttackTime = -Mathf.Infinity;
     public float cooldownTime = 1f;
+    private HpBar HpSprite;
     // Start is called before the first frame update
     void Start()
     {
         manager = GameObject.Find("GameManager");
         playerHP = manager.GetComponent<PlayerHealth>();
+        HpSprite = FindObjectOfType<HpBar>();
+
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class EnemyHitPlayer : MonoBehaviour
         if(collided.tag == "Player" && Time.time >= lastAttackTime + cooldownTime)
         {
             playerHP.Damaged(damage);
+            HpSprite.UpdateHP(playerHP.GetHP(), playerHP.GetMaxHP());
             lastAttackTime = Time.time;
         }
     }
