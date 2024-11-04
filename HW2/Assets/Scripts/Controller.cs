@@ -87,7 +87,7 @@ public class Controller : MonoBehaviour
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         if (bulletRb != null)
         {
-            bulletRb.velocity = gunBarrel.forward * bulletSpeed;
+            bulletRb.velocity = transform.forward * bulletSpeed;
         }
         Destroy(bullet, 1.5f);
         yield return new WaitForSeconds(0.7f);

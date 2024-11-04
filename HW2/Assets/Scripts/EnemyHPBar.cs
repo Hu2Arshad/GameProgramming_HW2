@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HpBar : MonoBehaviour
+public class EnemyHPBar : MonoBehaviour
 {
     private Image sprited;
     private Transform hpTransform;
     private Camera mainCamera;
-    private PlayerHealth HealthStatus;
+    private Enemy enemyStatus;
     void Start()
     {
         hpTransform = transform.Find("Background/HP");
@@ -18,8 +18,8 @@ public class HpBar : MonoBehaviour
         }
 
         mainCamera = Camera.main;
-        HealthStatus = FindObjectOfType<PlayerHealth>();
-        UpdateHP(HealthStatus.GetHP(), HealthStatus.GetMaxHP());
+        enemyStatus = FindObjectOfType<Enemy>();
+        UpdateHP(enemyStatus.GetHP(), enemyStatus.GetMaxHP());
     }
 
     public void UpdateHP(float curHP, float totalHP)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float attackRange = 3.0f;
     public float attackCooldown = 3f;
 
@@ -12,16 +12,33 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private bool isAttacking;
     private float lastAttackTime;
+    private GameObject player_obj;
 
+    public float HP = 40.0f;
+    public float maxHP = 40.0f;
 
+    private Transform hpTransform;
+    private EnemyHPBar HPBar;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        player_obj = GameObject.Find("Player");
+        if(player_obj!=null)
+        {
+            player = player_obj.GetComponent<Transform>();
+        }
+        else
+        {
+            Debug.Log("Cant find player");
+        }
         isAttacking = false;
         lastAttackTime = -attackCooldown;
 
+        hpTransform = transform.Find("EnemyHPbar");
+        GameObject hpObject = hpTransform.gameObject;
+        HPBar = hpObject.GetComponent<EnemyHPBar>();
     }
 
     void Update()
@@ -59,6 +76,34 @@ public class Enemy : MonoBehaviour
         isAttacking = false;
     }
 
+    public void Damaged()
+    {
+        HP -= 10.0f;
+        HP = Mathf.Max(HP, 0);
+        HPBar.UpdateHP(HP,maxHP);
+        
+        if(HP <= 0)
+        {
+            Destroy(gameObject, 1);
+            agent.isStopped = true;
+            animator.SetTrigger("Dead");
 
+        }
+        else if(!isAttacking)
+        {
+            
+            animator.SetTrigger("Hit");
+        }
+    }
+
+    public float GetHP()
+    {
+        return HP;
+    }
+
+    public float GetMaxHP()
+    {
+        return maxHP;
+    }
 
 }
