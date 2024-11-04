@@ -11360,6 +11360,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1452130692}
+    - target: {fileID: 935148061064799637, guid: 9a1d5a8325f9cea49a3c56d1457a2afb, type: 3}
+      propertyPath: attackCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 936531317158303728, guid: 9a1d5a8325f9cea49a3c56d1457a2afb, type: 3}
       propertyPath: m_Name
       value: TurtleShellPBR (2)
