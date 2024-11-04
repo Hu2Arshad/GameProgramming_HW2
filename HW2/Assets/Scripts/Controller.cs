@@ -16,13 +16,13 @@ public class Controller : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform gunBarrel;          
-    public float bulletSpeed = 20f;       
+    public float bulletSpeed = 20f;      
+    public static Controller obj; 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
-
     void Update()
     {
         if (!isShooting) {
