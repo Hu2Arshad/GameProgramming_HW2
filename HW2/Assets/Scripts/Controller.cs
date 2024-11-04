@@ -14,6 +14,9 @@ public class Controller : MonoBehaviour
 
     private bool isShooting = false;
 
+    public GameObject bulletPrefab;
+    public Transform gunBarrel;          
+    public float bulletSpeed = 20f;       
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -79,7 +82,12 @@ public class Controller : MonoBehaviour
         }
 
         animator.SetBool("IsShooting", true);
-
+        GameObject bullet = Instantiate(bulletPrefab, gunBarrel.position, gunBarrel.rotation);
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+        if (bulletRb != null)
+        {
+            bulletRb.velocity = gunBarrel.forward * bulletSpeed;
+        }
         yield return new WaitForSeconds(0.7f);
 
         nowDirection = Vector2.zero;
