@@ -71,10 +71,11 @@ public class Controller : MonoBehaviour
 
         rb.velocity = Vector3.zero;
 
+        Plane playerPlane = new Plane(Vector3.up, transform.position);
         Ray castray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (Physics.Raycast(castray, out RaycastHit hit))
+        if (playerPlane.Raycast(castray, out float enter))
         {
-            Vector3 targetPosition = hit.point;
+            Vector3 targetPosition = castray.GetPoint(enter);
             Vector3 direction = (targetPosition - transform.position).normalized;
             direction.y = 0;
 
@@ -88,6 +89,7 @@ public class Controller : MonoBehaviour
         {
             bulletRb.velocity = gunBarrel.forward * bulletSpeed;
         }
+        Destroy(bullet, 1.5f);
         yield return new WaitForSeconds(0.7f);
 
         nowDirection = Vector2.zero;
