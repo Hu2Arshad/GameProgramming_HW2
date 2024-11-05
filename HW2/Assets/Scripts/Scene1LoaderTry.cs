@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Scene1LoaderTry : MonoBehaviour
 {
+    public int sceneNum = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class Scene1LoaderTry : MonoBehaviour
     {
         if(others.tag == "Player")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(sceneNum);
         }        
     }
 }

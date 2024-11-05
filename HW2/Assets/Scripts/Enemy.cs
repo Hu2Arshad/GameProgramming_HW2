@@ -16,10 +16,11 @@ public class Enemy : MonoBehaviour
 
     public float HP = 40.0f;
     public float maxHP = 40.0f;
-
+    private bool alive = true;
     private Transform hpTransform;
     private EnemyHPBar HPBar;
     private CheckFinished registerEnemy;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -85,12 +86,13 @@ public class Enemy : MonoBehaviour
         HP = Mathf.Max(HP, 0);
         HPBar.UpdateHP(HP,maxHP);
         
-        if(HP <= 0)
+        if(HP == 0 && alive)
         {
             registerEnemy.RemoveEnemy();
             agent.isStopped = true;
             animator.SetTrigger("Dead");
             Destroy(gameObject, 1);
+            alive = false;
             
         }
         else if(!isAttacking)
