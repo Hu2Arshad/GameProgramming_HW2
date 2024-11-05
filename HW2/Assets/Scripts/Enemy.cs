@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
 
     private Transform hpTransform;
     private EnemyHPBar HPBar;
+    private CheckFinished registerEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,8 @@ public class Enemy : MonoBehaviour
         hpTransform = transform.Find("EnemyHPbar");
         GameObject hpObject = hpTransform.gameObject;
         HPBar = hpObject.GetComponent<EnemyHPBar>();
+        registerEnemy = FindObjectOfType<CheckFinished>();
+        registerEnemy.AddEnemy();
     }
 
     void Update()
@@ -84,10 +87,11 @@ public class Enemy : MonoBehaviour
         
         if(HP <= 0)
         {
-            Destroy(gameObject, 1);
+            registerEnemy.RemoveEnemy();
             agent.isStopped = true;
             animator.SetTrigger("Dead");
-
+            Destroy(gameObject, 1);
+            
         }
         else if(!isAttacking)
         {
