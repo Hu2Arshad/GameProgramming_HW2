@@ -1112,11 +1112,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1931108060}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene1
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1565,7 +1565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1088021754
 Transform:
   m_ObjectHideFlags: 0
@@ -3062,9 +3062,9 @@ Canvas:
   m_GameObject: {fileID: 1731205959}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1992083638}
+  m_PlaneDistance: 200
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -3782,6 +3782,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySnail
       objectReference: {fileID: 0}
+    - target: {fileID: 8497362857035140738, guid: 0f79384541149924baddb009c9460ee6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497362857035140739, guid: 0f79384541149924baddb009c9460ee6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8501835733963066144, guid: 0f79384541149924baddb009c9460ee6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3842,8 +3850,7 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8497362857035140738, guid: 0f79384541149924baddb009c9460ee6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f79384541149924baddb009c9460ee6, type: 3}
 --- !u!4 &1878824436027081740 stripped
 Transform:
