@@ -8,9 +8,12 @@ public class LoadingScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager = GameObject.Find("Game Manager");
+        GameManager = GameObject.Find("GameManager");
+
         if (GameManager != null) GameManager.GetComponent<SceneLoader>().LoadingScreen = gameObject;
         else Debug.Log("LoadingScreen Unable to locate Game Manager");
+
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame

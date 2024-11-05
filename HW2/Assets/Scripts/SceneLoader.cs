@@ -18,12 +18,20 @@ public class SceneLoader : MonoBehaviour
         
     }
 
-    public void LoadScene1() // Load the first scene
+    public void LoadScene1(int SceneId) // Load scene with corresponding SceneId
+    {
+        StartCoroutine(LoadSceneAsync(SceneId));
+    }
+
+    IEnumerator LoadSceneAsync(int SceneId)
     {
         if (LoadingScreen != null) LoadingScreen.SetActive(true); //Loading Screen
         else Debug.Log("Error Activating Loading Screen");
 
-        SceneManager.LoadScene(1);
+        yield return new WaitForSeconds(1.0f); // Wait for 1 second
+
+        SceneManager.LoadSceneAsync(SceneId);
+        
     }
 
 }
