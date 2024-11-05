@@ -7,7 +7,7 @@ public class HpBar : MonoBehaviour
     private Image sprited;
     private Transform hpTransform;
     private Camera mainCamera;
-    private PlayerHealth HealthStatus;
+    private GameManager HealthStatus;
     void Start()
     {
         hpTransform = transform.Find("Background/HP");
@@ -18,8 +18,8 @@ public class HpBar : MonoBehaviour
         }
 
         mainCamera = Camera.main;
-        HealthStatus = FindObjectOfType<PlayerHealth>();
-        UpdateHP(HealthStatus.GetHP(), HealthStatus.GetMaxHP());
+        HealthStatus = GameObject.Find("GameManager").GetComponent<GameManager>();
+        UpdateHP(HealthStatus.curHP, HealthStatus.totalHP);
     }
 
     public void UpdateHP(float curHP, float totalHP)

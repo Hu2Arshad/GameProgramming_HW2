@@ -11,14 +11,10 @@ public class HealItem : MonoBehaviour
     int healingAmount = 10;
 
     private PlayerHealth playerHP;
-    private GameObject manager;
-    private HpBar HpSprite;
     // Start is called before the first frame update
     void Start()
     {
-        manager = GameObject.Find("GameManager");
-        playerHP = manager.GetComponent<PlayerHealth>();
-        HpSprite = FindObjectOfType<HpBar>();
+        playerHP = GameObject.Find("Player").GetComponent<PlayerHealth>();
     }
 
     void Update()
@@ -31,7 +27,6 @@ public class HealItem : MonoBehaviour
         if(collided.tag == "Player")
         {
             playerHP.Healed(healingAmount);
-            HpSprite.UpdateHP(playerHP.GetHP(), playerHP.GetMaxHP());
             Destroy(gameObject);
         }
     }
