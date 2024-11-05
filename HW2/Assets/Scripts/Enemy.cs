@@ -20,7 +20,11 @@ public class Enemy : MonoBehaviour
     private Transform hpTransform;
     private EnemyHPBar HPBar;
     private CheckFinished registerEnemy;
-    
+    public GameObject bulletPrefab;
+    public Transform gunBarrel1;
+    public Transform gunBarrel2;
+    public Transform gunBarrel3;
+    public float bulletSpeed = 20f;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +82,31 @@ public class Enemy : MonoBehaviour
     public void EndAttack()
     {
         isAttacking = false;
+    }
+
+    public void FireballAttack()
+    {
+        GameObject bullet1 = Instantiate(bulletPrefab, gunBarrel1.position, gunBarrel1.rotation);
+        Rigidbody bulletRb1 = bullet1.GetComponent<Rigidbody>();
+        if (bulletRb1 != null)
+        {
+            bulletRb1.velocity = gunBarrel1.forward * bulletSpeed;
+        }
+        GameObject bullet2 = Instantiate(bulletPrefab, gunBarrel2.position, gunBarrel2.rotation);
+        Rigidbody bulletRb2 = bullet2.GetComponent<Rigidbody>();
+        if (bulletRb2 != null)
+        {
+            bulletRb2.velocity = gunBarrel2.forward * bulletSpeed;
+        }
+        GameObject bullet3 = Instantiate(bulletPrefab, gunBarrel3.position, gunBarrel3.rotation);
+        Rigidbody bulletRb3 = bullet3.GetComponent<Rigidbody>();
+        if (bulletRb3 != null)
+        {
+            bulletRb3.velocity = gunBarrel3.forward * bulletSpeed;
+        }                
+        Destroy(bullet1, 5f);
+        Destroy(bullet2, 5f);
+        Destroy(bullet3, 5f);
     }
 
     public void Damaged()
