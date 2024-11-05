@@ -25,6 +25,13 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator LoadSceneAsync(int SceneId)
     {
+        GameObject camera = GameObject.Find("Loading Screen Cam");
+        if (camera != null)
+        {
+            camera.GetComponent<Camera>().depth = 1;
+        }
+        else Debug.Log("No Alternative Camera");
+
         if (LoadingScreen != null) LoadingScreen.SetActive(true); //Loading Screen
         else Debug.Log("Error Activating Loading Screen");
 
