@@ -15,10 +15,4 @@ public class LoadingScreen : MonoBehaviour
 
         gameObject.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

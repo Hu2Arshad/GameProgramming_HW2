@@ -1391,7 +1391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 5
-  bulletPrefab: {fileID: 889422495273584221, guid: e330336711ee1774fafa668e9cb56c94, type: 3}
+  bulletPrefab: {fileID: 1586312280044809633, guid: 70b7506ecda87c847a3e96f59a7c9777, type: 3}
   gunBarrel: {fileID: 5651308651978171464}
   bulletSpeed: 20
 --- !u!114 &5651308650157731694
