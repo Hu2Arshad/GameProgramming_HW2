@@ -25,7 +25,7 @@ public class EnemyHitPlayer : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider collided)
     {
-        if(collided.tag == "Player" && Time.time >= lastAttackTime + cooldownTime)
+        if(collided.tag == "Player" && Time.time >= lastAttackTime + cooldownTime && this_parent.GetHP() > 0.0f)
         {
             playerHP.Damaged(damage);
             HpSprite.UpdateHP(playerHP.GetHP(), playerHP.GetMaxHP());
