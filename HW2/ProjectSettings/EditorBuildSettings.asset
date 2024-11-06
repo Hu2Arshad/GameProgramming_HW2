@@ -7,15 +7,18 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: 
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Homescreen.unity
     guid: 62cb5bab0b15efc4281eb4769f894003
   - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 8fef4e89a22f16940a0d416730bec531
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stage2_Jonathan.unity
     guid: 20cf1a53bcf00574cb819767b53960b6
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: f58e4e83014746e48b13aab9c12683e2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0554e85aca806c94c9fb729b0081de9e, type: 2}

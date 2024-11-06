@@ -46,6 +46,6 @@ public class ParticleManager : MonoBehaviour
         if (parentTr == null) prefab = Instantiate(aoeEffect, effect_pos, Quaternion.identity);
         else prefab = Instantiate(aoeEffect, effect_pos, Quaternion.identity, parentTr);
 
-        Destroy(prefab, 1.0f);
+        Destroy(prefab, 1.5f);
     }
 }
