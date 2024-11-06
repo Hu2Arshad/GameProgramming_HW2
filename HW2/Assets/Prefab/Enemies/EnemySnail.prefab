@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 4243281032193978974}
   - component: {fileID: 4302958361778740345}
   - component: {fileID: 4302958361778740344}
+  - component: {fileID: -5739709860755049440}
   m_Layer: 0
   m_Name: EnemySnail
   m_TagString: Enemy
@@ -488,6 +489,11 @@ MonoBehaviour:
   attackCooldown: 3
   HP: 40
   maxHP: 40
+  bulletPrefab: {fileID: 0}
+  gunBarrel1: {fileID: 0}
+  gunBarrel2: {fileID: 0}
+  gunBarrel3: {fileID: 0}
+  bulletSpeed: 20
 --- !u!195 &4302958361778740344
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -510,6 +516,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5739709860755049440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301579369782455836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6521b4dd1fc414890034c48d17dfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: fa96b4048bf95314fb2a83f832d58141, type: 3}
+  gotHit: {fileID: 8300000, guid: 435929fc53461b24f8159770fd62457b, type: 3}
+  deathSound: {fileID: 0}
+  healedSound: {fileID: 0}
 --- !u!1 &4301582320260763308
 GameObject:
   m_ObjectHideFlags: 0

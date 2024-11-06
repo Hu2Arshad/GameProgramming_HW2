@@ -33,6 +33,9 @@ public class EnemyHitPlayer : MonoBehaviour
         {
             this_parent.Damaged();
             Destroy(collided.gameObject);
+
+            //Hit effect particle
+            
         }
     }
 }

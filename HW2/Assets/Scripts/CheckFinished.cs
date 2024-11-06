@@ -36,7 +36,7 @@ public class CheckFinished : MonoBehaviour
         {
             //meshRenderer.enabled = true;
             //colliders.enabled = true;
-            portal.SetActive(true);
+            if (portal != null) portal.SetActive(true);
         }
     }
 

@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cauldron_heal
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 63972c47a97a52f41a2fbbb17c7dc181, type: 3}
+      propertyPath: m_TagString
+      value: Breakables
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63972c47a97a52f41a2fbbb17c7dc181, type: 3}
 --- !u!1 &8149393529536148420 stripped
@@ -118,3 +122,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 2670289734877185619, guid: 261b5de61f5746643a926d43235b2f11, type: 3}
   heal: {fileID: 3180190772059161819, guid: acc591f3f3af45842beb61b22a2ee1c0, type: 3}
+  breaking: {fileID: 8300000, guid: 1c4bf90e7e2c8d84eb254f19760270a2, type: 3}
