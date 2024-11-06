@@ -1868,6 +1868,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CamBoundary
       objectReference: {fileID: 0}
+    - target: {fileID: 8594541079934715390, guid: c94072b7345c9174c811e3688efaef9c, type: 3}
+      propertyPath: m_TagString
+      value: CamBoundary
+      objectReference: {fileID: 0}
     - target: {fileID: 8594541079934715391, guid: c94072b7345c9174c811e3688efaef9c, type: 3}
       propertyPath: m_Size.x
       value: 43.402775
@@ -2983,11 +2987,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7795483340868072631, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001604501
+      value: 0.00000001604501
       objectReference: {fileID: 0}
     - target: {fileID: 7795483340868072631, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000063066374
+      value: -0.0000000063066374
       objectReference: {fileID: 0}
     - target: {fileID: 7795483341086001708, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalPosition.x

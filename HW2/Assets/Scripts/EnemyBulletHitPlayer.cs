@@ -26,5 +26,9 @@ public class EnemyBulletHitPlayer : MonoBehaviour
             playerSFX.PlayGotHit();
             Destroy(gameObject);
         }
+        if(collided.tag == "Untagged")
+        {
+            Destroy(gameObject);
+        }
     }
 }

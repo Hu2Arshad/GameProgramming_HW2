@@ -9,6 +9,7 @@ TagManager:
   - Camera
   - EnemyBullet
   - Breakables
+  - CamBoundary
   layers:
   - Default
   - TransparentFX
