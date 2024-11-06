@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     private Transform player;
     public float attackRange = 3.0f;
     public float attackCooldown = 3f;
+    public float aoeRange = 6.0f;
+    public int aoeDamage = 25;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -24,7 +26,13 @@ public class Enemy : MonoBehaviour
     public Transform gunBarrel1;
     public Transform gunBarrel2;
     public Transform gunBarrel3;
+    public Transform aoeTransform;
     public float bulletSpeed = 20f;
+    private SFXController soundEffect;
+    private PlayerHealth playerHP;
+    private SFXController playerSFX;
+
+    private ParticleManager aoeEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +55,10 @@ public class Enemy : MonoBehaviour
         HPBar = hpObject.GetComponent<EnemyHPBar>();
         registerEnemy = FindObjectOfType<CheckFinished>();
         registerEnemy.AddEnemy();
+        soundEffect = GetComponent<SFXController>();
+        playerHP = player_obj.GetComponent<PlayerHealth>();
+        playerSFX = player_obj.GetComponent<SFXController>();
+        aoeEffect = FindObjectOfType<ParticleManager>();
     }
 
     void Update()
@@ -76,6 +88,7 @@ public class Enemy : MonoBehaviour
         agent.isStopped = true;
         animator.SetBool("Moving", false);
         animator.SetTrigger("Attack");
+        soundEffect.PlayAttack();
         lastAttackTime = Time.time;
     }
 
@@ -109,14 +122,31 @@ public class Enemy : MonoBehaviour
         Destroy(bullet3, 5f);
     }
 
+    public void AoeAttack()
+    {
+        
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= aoeRange)
+        {
+            playerHP.Damaged(aoeDamage);
+            playerSFX.PlayGotHit();
+        }
+    }
+
+    public void StartAoe()
+    {
+        aoeEffect.AoeEffect(transform.position);
+    }
+
     public void Damaged()
     {
         HP -= 10.0f;
         HP = Mathf.Max(HP, 0);
         HPBar.UpdateHP(HP,maxHP);
-        
+        soundEffect.PlayGotHit();
         if(HP == 0 && alive)
         {
+            Debug.Log("Entered Death");
             registerEnemy.RemoveEnemy();
             agent.isStopped = true;
             animator.SetTrigger("Dead");

@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - GunBullet
   - Camera
+  - EnemyBullet
+  - Breakables
   layers:
   - Default
   - TransparentFX

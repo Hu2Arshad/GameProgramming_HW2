@@ -2058,7 +2058,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1425383010550552527, guid: 7ff30c7e7a931fa4abaacbcf858e20a1, type: 3}
   m_PrefabInstance: {fileID: 1046098403}
   m_PrefabAsset: {fileID: 0}
+  
 --- !u!1 &1070085492
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2066,6 +2068,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+
   - component: {fileID: 1070085495}
   - component: {fileID: 1070085494}
   - component: {fileID: 1070085493}
@@ -2082,6 +2085,7 @@ TerrainCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1070085492}
   m_Material: {fileID: 0}
   m_Enabled: 1
@@ -2127,9 +2131,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+
   m_GameObject: {fileID: 1070085492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -54.1, y: 0, z: -11.9}
+  
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4121,9 +4127,11 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5406714865639767930, guid: aa7d57a493d9e62419b9a277e6f0e857, type: 3}
+
     - target: {fileID: 2984571881704397543, guid: 9b9b7bab902112345a762cc80af2609a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.72
+
       objectReference: {fileID: 0}
     - target: {fileID: 4028062477766010374, guid: 9b9b7bab902112345a762cc80af2609a, type: 3}
       propertyPath: m_RootOrder
