@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     public Transform gunBarrel2;
     public Transform gunBarrel3;
     public float bulletSpeed = 20f;
+    private SFXController soundEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
         HPBar = hpObject.GetComponent<EnemyHPBar>();
         registerEnemy = FindObjectOfType<CheckFinished>();
         registerEnemy.AddEnemy();
+        soundEffect = GetComponent<SFXController>();
     }
 
     void Update()
@@ -76,6 +78,7 @@ public class Enemy : MonoBehaviour
         agent.isStopped = true;
         animator.SetBool("Moving", false);
         animator.SetTrigger("Attack");
+        soundEffect.PlayAttack();
         lastAttackTime = Time.time;
     }
 
@@ -114,7 +117,7 @@ public class Enemy : MonoBehaviour
         HP -= 10.0f;
         HP = Mathf.Max(HP, 0);
         HPBar.UpdateHP(HP,maxHP);
-        
+        soundEffect.PlayGotHit();
         if(HP == 0 && alive)
         {
             registerEnemy.RemoveEnemy();
