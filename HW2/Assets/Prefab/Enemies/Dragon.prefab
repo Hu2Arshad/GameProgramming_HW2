@@ -1315,6 +1315,7 @@ GameObject:
   - component: {fileID: 2984571881694829207}
   - component: {fileID: 2984571881328786226}
   - component: {fileID: 2984571881328786227}
+  - component: {fileID: 6262539082632351239}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -1406,6 +1407,22 @@ MonoBehaviour:
   gunBarrel2: {fileID: 2201654573234648177}
   gunBarrel3: {fileID: 2201654572544614905}
   bulletSpeed: 5
+--- !u!114 &6262539082632351239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984571881704245153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6521b4dd1fc414890034c48d17dfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: fd3671ce7c0437c4cbfd35411a43d8e6, type: 3}
+  gotHit: {fileID: 8300000, guid: 8f4a2db72f6785c438a5b5f5b3d758c2, type: 3}
+  deathSound: {fileID: 0}
+  healedSound: {fileID: 0}
 --- !u!1 &2984571881704248997
 GameObject:
   m_ObjectHideFlags: 0
