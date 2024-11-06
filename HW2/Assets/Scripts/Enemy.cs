@@ -120,6 +120,7 @@ public class Enemy : MonoBehaviour
         soundEffect.PlayGotHit();
         if(HP == 0 && alive)
         {
+            Debug.Log("Entered Death");
             registerEnemy.RemoveEnemy();
             agent.isStopped = true;
             animator.SetTrigger("Dead");
