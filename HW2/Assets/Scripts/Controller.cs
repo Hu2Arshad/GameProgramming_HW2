@@ -18,10 +18,13 @@ public class Controller : MonoBehaviour
     public Transform gunBarrel;          
     public float bulletSpeed = 20f;      
     public static Controller obj; 
+
+    private SFXController soundEffect;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        soundEffect = GetComponent<SFXController>();
     }
     void Update()
     {
@@ -89,6 +92,7 @@ public class Controller : MonoBehaviour
         {
             bulletRb.velocity = transform.forward * bulletSpeed;
         }
+        soundEffect.PlayAttack();
         Destroy(bullet, 1.5f);
         yield return new WaitForSeconds(0.7f);
 
@@ -115,4 +119,6 @@ public class Controller : MonoBehaviour
             nowDirection = Vec2Interpolation(movementInput, nowDirection, 0.4f);
     }
     #endregion
+
+    
 }

@@ -44539,6 +44539,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9198111634000989034, guid: 27da8fa90d38bb64691dbfdc89c213e7, type: 3}
+      propertyPath: gotHit
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e7fe5aa99ddbc14883872099eac17f3, type: 3}
+    - target: {fileID: -9198111634000989034, guid: 27da8fa90d38bb64691dbfdc89c213e7, type: 3}
+      propertyPath: healedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e28024a4dada1f44a827307d635f85f1, type: 3}
     - target: {fileID: 4804235342509427924, guid: 27da8fa90d38bb64691dbfdc89c213e7, type: 3}
       propertyPath: m_Name
       value: Player
@@ -44728,11 +44736,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9164868225320439501, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001604501
+      value: 0.00000001604501
       objectReference: {fileID: 0}
     - target: {fileID: 9164868225320439501, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000063066374
+      value: -0.0000000063066374
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}

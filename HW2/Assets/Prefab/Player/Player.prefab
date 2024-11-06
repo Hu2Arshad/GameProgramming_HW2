@@ -1303,6 +1303,7 @@ GameObject:
   - component: {fileID: 5651308650157731729}
   - component: {fileID: 5651308650157731694}
   - component: {fileID: 6049793235949913973}
+  - component: {fileID: -9198111634000989034}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1468,6 +1469,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 859196f605ce97440834857ef468f513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-9198111634000989034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804235342509427924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f6521b4dd1fc414890034c48d17dfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: 929eee32ce7ed06429da1a9909a46dc1, type: 3}
+  gotHit: {fileID: 8300000, guid: 5e7fe5aa99ddbc14883872099eac17f3, type: 3}
+  deathSound: {fileID: 0}
+  healedSound: {fileID: 8300000, guid: e28024a4dada1f44a827307d635f85f1, type: 3}
 --- !u!1 &5463507248223377829
 GameObject:
   m_ObjectHideFlags: 0

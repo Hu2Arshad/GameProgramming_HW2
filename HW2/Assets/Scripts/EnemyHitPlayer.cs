@@ -7,6 +7,7 @@ public class EnemyHitPlayer : MonoBehaviour
     public int damage = 10;
 
     private PlayerHealth playerHP;
+    private SFXController playerSFX;
     private float lastAttackTime = -Mathf.Infinity;
     public float cooldownTime = 1f;
     private Enemy this_parent;
@@ -14,6 +15,7 @@ public class EnemyHitPlayer : MonoBehaviour
     void Start()
     {
         playerHP = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        playerSFX = GameObject.Find("Player").GetComponent<SFXController>();
         this_parent = GetComponentInParent<Enemy>();
 
     }
@@ -24,6 +26,7 @@ public class EnemyHitPlayer : MonoBehaviour
         if(collided.tag == "Player" && Time.time >= lastAttackTime + cooldownTime && this_parent.GetHP() > 0.0f)
         {
             playerHP.Damaged(damage);
+            playerSFX.PlayGotHit();
             lastAttackTime = Time.time;
         }
         if(collided.tag == "GunBullet")

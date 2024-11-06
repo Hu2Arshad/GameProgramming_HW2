@@ -11,10 +11,12 @@ public class HealItem : MonoBehaviour
     int healingAmount = 10;
 
     private PlayerHealth playerHP;
+    private SFXController playerSFX;
     // Start is called before the first frame update
     void Start()
     {
         playerHP = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        playerSFX = GameObject.Find("Player").GetComponent<SFXController>();
     }
 
     void Update()
@@ -27,6 +29,7 @@ public class HealItem : MonoBehaviour
         if(collided.tag == "Player")
         {
             playerHP.Healed(healingAmount);
+            playerSFX.PlayHealed();
             Destroy(gameObject);
         }
     }
