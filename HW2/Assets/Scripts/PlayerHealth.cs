@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
     private GameManager manager;
+    private ParticleManager particleManager;
     private int totalHP = 100;
     private int curHP = 100;
 
@@ -14,6 +15,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {   
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        particleManager = GameObject.Find("ParticleManager").GetComponent<ParticleManager>();
+
+        //Retrieve hp value from previous scene (if exist) throug GameManager
         if (manager != null )
         {
             curHP = manager.curHP; 
@@ -27,7 +31,8 @@ public class PlayerHealth : MonoBehaviour
         }
         HpSprite = transform.Find("HPbar").GetComponent<HpBar>();
         if (HpSprite == null ) { Debug.Log("Unable to find Player HP Bar"); }
-        HpSprite.UpdateHP(curHP, totalHP);
+        HpSprite.UpdateHP(curHP, totalHP); //Update Player HP Bar sprite
+
     }
 
     public int GetHP()
@@ -41,8 +46,17 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Damaged(int damage)
-    {
-        curHP -= damage;
+    {   
+        if (particleManager != null)
+        {   //Player transform pos is on the feet, increase y to suitable position.
+            Vector3 HitEffectPos = new Vector3(transform.position.x, (transform.position.y + 1), transform.position.z);
+            particleManager.HitEffect(HitEffectPos, transform); // When player is damaged, create particle
+        }
+        else {
+            Debug.Log("PlayerHealth Unable to find ParticleManager");
+        }
+
+            curHP -= damage;
         curHP = Mathf.Max(curHP, 0);
         HpSprite.UpdateHP(curHP, totalHP);
     }

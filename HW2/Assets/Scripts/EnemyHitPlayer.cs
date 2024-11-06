@@ -8,6 +8,7 @@ public class EnemyHitPlayer : MonoBehaviour
 
     private PlayerHealth playerHP;
     private SFXController playerSFX;
+    private ParticleManager particleManager;
     private float lastAttackTime = -Mathf.Infinity;
     public float cooldownTime = 1f;
     private Enemy this_parent;
@@ -16,6 +17,7 @@ public class EnemyHitPlayer : MonoBehaviour
     {
         playerHP = GameObject.Find("Player").GetComponent<PlayerHealth>();
         playerSFX = GameObject.Find("Player").GetComponent<SFXController>();
+        particleManager = GameObject.Find("ParticleManager").GetComponent<ParticleManager>();
         this_parent = GetComponentInParent<Enemy>();
 
     }
@@ -33,6 +35,10 @@ public class EnemyHitPlayer : MonoBehaviour
         {
             this_parent.Damaged();
             Destroy(collided.gameObject);
+
+            //Hit effect particle
+            if (particleManager != null) particleManager.HitEffect(collided.transform.position, transform);
+            else Debug.Log("EnemyHitPlayer Unable to locate ParticleManager");
         }
     }
 }
