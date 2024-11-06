@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Cant find player");
         }
         isAttacking = false;
-        lastAttackTime = -attackCooldown;
+        lastAttackTime = Time.time;
 
         hpTransform = transform.Find("EnemyHPbar");
         GameObject hpObject = hpTransform.gameObject;
