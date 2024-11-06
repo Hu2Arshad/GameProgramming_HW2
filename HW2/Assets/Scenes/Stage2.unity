@@ -1745,11 +1745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9164868225320439501, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000001604501
+      value: -0.00000001604501
       objectReference: {fileID: 0}
     - target: {fileID: 9164868225320439501, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000063066374
+      value: 0.0000000063066374
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
@@ -4008,6 +4008,10 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 5406714865639767930, guid: aa7d57a493d9e62419b9a277e6f0e857, type: 3}
+    - target: {fileID: 2984571881704245153, guid: 9b9b7bab902112345a762cc80af2609a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4028062477766010374, guid: 9b9b7bab902112345a762cc80af2609a, type: 3}
       propertyPath: m_RootOrder
       value: 3

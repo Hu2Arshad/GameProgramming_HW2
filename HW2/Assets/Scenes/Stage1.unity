@@ -15897,6 +15897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cauldron_heal (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8149393529536148420, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
+      propertyPath: m_TagString
+      value: Breakables
+      objectReference: {fileID: 0}
     - target: {fileID: 8814572034247764350, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -16050,6 +16054,10 @@ PrefabInstance:
     - target: {fileID: 8149393529536148420, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
       propertyPath: m_Name
       value: Cauldron_heal (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149393529536148420, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
+      propertyPath: m_TagString
+      value: Breakables
       objectReference: {fileID: 0}
     - target: {fileID: 8814572034247764350, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
       propertyPath: m_RootOrder
@@ -17785,6 +17793,10 @@ PrefabInstance:
     - target: {fileID: 8149393529536148420, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
       propertyPath: m_Name
       value: Cauldron_heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149393529536148420, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
+      propertyPath: m_TagString
+      value: Breakables
       objectReference: {fileID: 0}
     - target: {fileID: 8814572034247764350, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
       propertyPath: m_RootOrder
@@ -36286,6 +36298,10 @@ PrefabInstance:
     - target: {fileID: 8149393529536148420, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
       propertyPath: m_Name
       value: Cauldron_heal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149393529536148420, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
+      propertyPath: m_TagString
+      value: Breakables
       objectReference: {fileID: 0}
     - target: {fileID: 8814572034247764350, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
       propertyPath: m_RootOrder
