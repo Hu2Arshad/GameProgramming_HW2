@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
         {
             //Hit Particle Effect
             if (particleManager != null) particleManager.HitEffect(transform.position, collided.transform);
-            else Debug.Log("EnemyHitPlayer Unable to locate ParticleManager");
+            else Debug.Log("Bullet Unable to locate ParticleManager");
         }
         else Destroy(gameObject);
     }

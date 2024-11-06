@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParticleManager : MonoBehaviour
 {
     public GameObject Particle_HitEffect;
+    public GameObject aoeEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,21 @@ public class ParticleManager : MonoBehaviour
         GameObject prefab;
         if (parentTr == null) prefab = Instantiate(Particle_HitEffect, effect_pos, Quaternion.identity);
         else prefab = Instantiate(Particle_HitEffect, effect_pos, Quaternion.identity, parentTr);
+
+        Destroy(prefab, 1.0f);
+    }
+
+    public void AoeEffect(Vector3 effect_pos, Transform parentTr = null)
+    {
+        if (aoeEffect == null)
+        {
+            Debug.Log("No Aoe Particle set to ParticleManager");
+            return;
+        }
+
+        GameObject prefab;
+        if (parentTr == null) prefab = Instantiate(aoeEffect, effect_pos, Quaternion.identity);
+        else prefab = Instantiate(aoeEffect, effect_pos, Quaternion.identity, parentTr);
 
         Destroy(prefab, 1.0f);
     }
