@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +12,10 @@ public class Controller : MonoBehaviour
     private Animator animator;
 
     private bool isShooting = false;
+    private bool isRolling = false;
+
+    private float rollSpeed = 7.5f;
+    private float rollDuration = 1f;
 
     public GameObject bulletPrefab;
     public Transform gunBarrel;          
@@ -20,15 +23,17 @@ public class Controller : MonoBehaviour
     public static Controller obj; 
 
     private SFXController soundEffect;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         soundEffect = GetComponent<SFXController>();
     }
+
     void Update()
     {
-        if (!isShooting) {
+        if (!isShooting && !isRolling) {
             UpdateDirection();
         }
 
@@ -39,7 +44,8 @@ public class Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isShooting) {
+        if (!isShooting && !isRolling)
+        {
             Vector3 move = new Vector3(nowDirection.x, 0, nowDirection.y).normalized;
             rb.velocity = move * MovementSpeed + Vector3.up * rb.velocity.y;
 
@@ -47,6 +53,11 @@ public class Controller : MonoBehaviour
             {
                 transform.eulerAngles = new Vector3(0, Mathf.Rad2Deg * Mathf.Atan2(rb.velocity.x, rb.velocity.z), 0);
             }
+        }
+        else if (isRolling)
+        {
+            // Keep rolling direction velocity active during roll
+            rb.velocity = transform.forward * rollSpeed + Vector3.up * rb.velocity.y;
         }
         else
         {
@@ -61,11 +72,49 @@ public class Controller : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed && !isShooting)
+        if (context.performed && !isShooting && !isRolling)
         {
             StartCoroutine(Shoot());
             rb.velocity = Vector3.zero;
         }
+    }
+
+    public void Rolling(InputAction.CallbackContext context)
+    {
+        if (context.performed && !isRolling)
+        {
+            StartCoroutine(Roll());
+        }
+    }
+
+    private IEnumerator Roll()
+    {
+        isRolling = true;
+        isShooting = true;  // Prevent shooting during roll
+
+        Vector3 rollDirection;
+
+        if (rb.velocity.magnitude > 0.1f)
+        {
+            rollDirection = rb.velocity.normalized;  
+            transform.rotation = Quaternion.LookRotation(rollDirection);
+        }
+        else
+        {
+            rollDirection = -transform.forward;  
+            transform.rotation = Quaternion.LookRotation(rollDirection);
+        }
+
+        rb.velocity = rollDirection * rollSpeed;
+
+        animator.SetBool("Roll", true); 
+
+        yield return new WaitForSeconds(rollDuration);
+
+        animator.SetBool("Roll", false); 
+
+        isRolling = false;
+        isShooting = false;
     }
 
     private IEnumerator Shoot()
@@ -101,7 +150,6 @@ public class Controller : MonoBehaviour
         animator.SetBool("IsShooting", false);
 
         isShooting = false;
-
     }
 
     #region Do not modify
@@ -113,12 +161,10 @@ public class Controller : MonoBehaviour
     // Make your player move smoothly
     void UpdateDirection()
     {
-        if (isShooting)
+        if (isShooting || isRolling)
             nowDirection = Vec2Interpolation(Vector2.zero, nowDirection, 0.4f);
         else
             nowDirection = Vec2Interpolation(movementInput, nowDirection, 0.4f);
     }
     #endregion
-
-    
 }

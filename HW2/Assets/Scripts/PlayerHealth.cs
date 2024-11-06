@@ -10,12 +10,15 @@ public class PlayerHealth : MonoBehaviour
     private int totalHP = 100;
     private int curHP = 100;
 
+    private GameObject Player;
+    private DeathScreen deathScreenUI;
     private HpBar HpSprite;
 
     void Start()
     {   
         manager = GameObject.Find("GameManager").GetComponent<GameManager>();
         particleManager = GameObject.Find("ParticleManager").GetComponent<ParticleManager>();
+        Player = GameObject.Find("Player");
 
         //Retrieve hp value from previous scene (if exist) throug GameManager
         if (manager != null )
@@ -32,6 +35,9 @@ public class PlayerHealth : MonoBehaviour
         HpSprite = transform.Find("HPbar").GetComponent<HpBar>();
         if (HpSprite == null ) { Debug.Log("Unable to find Player HP Bar"); }
         HpSprite.UpdateHP(curHP, totalHP); //Update Player HP Bar sprite
+
+        deathScreenUI = GameObject.Find("Death_Container").GetComponent<DeathScreen>();
+        if (deathScreenUI == null) { Debug.Log("Unable to find DeathScreenUI"); }
 
     }
 
@@ -56,9 +62,14 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("PlayerHealth Unable to find ParticleManager");
         }
 
-            curHP -= damage;
+        curHP -= damage;
         curHP = Mathf.Max(curHP, 0);
         HpSprite.UpdateHP(curHP, totalHP);
+
+        if (curHP <= 0)
+        {
+            OnPlayerDeath();
+        }
     }
 
     public void Healed(int heal)
@@ -72,5 +83,22 @@ public class PlayerHealth : MonoBehaviour
     {
         manager.totalHP = totalHP;
         manager.curHP = curHP;
+    }
+
+    private void OnPlayerDeath()
+    {
+        // Trigger the death screen
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.SetActive(false);
+        }
+
+        Player.SetActive(false);
+        
+        if (deathScreenUI != null)
+        {
+            deathScreenUI.ShowDeathScreen();
+        }
     }
 }
