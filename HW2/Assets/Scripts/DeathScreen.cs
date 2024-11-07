@@ -10,13 +10,14 @@ public class DeathScreen : MonoBehaviour
     private GameObject GameManager;
     private GameObject Player;
     private SFXController playerSFX;
-
+    private UpdateText objectiveUI;
     private void Start()
     {
         mainMenuButton.gameObject.SetActive(false); // Hide button initially
         Player = GameObject.Find("Death_Container/Hope_and_other_Delusion/Temp_char_for_load");
         playerSFX = GameObject.Find("Death_Container/Hope_and_other_Delusion").GetComponent<SFXController>();
         Player.SetActive(false);
+        objectiveUI = FindObjectOfType<UpdateText>();
     }
 
     public void ShowDeathScreen()
@@ -28,6 +29,7 @@ public class DeathScreen : MonoBehaviour
         }
         Player.SetActive(true);
         playerSFX.PlayDeath();
+        objectiveUI.DisableText();
         StartCoroutine(PlayDeathSequence());
     }
 

@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 4.5
   attackCooldown: 5
-  aoeRange: 6
+  aoeRange: 6.8
   aoeDamage: 25
   HP: 150
   maxHP: 150
