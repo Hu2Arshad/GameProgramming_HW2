@@ -6,12 +6,15 @@ using UnityEngine.SceneManagement;
 public class Portal : MonoBehaviour
 {
     private SceneLoader sceneloader;
-
+    
     public int SceneNum = 2;
+
+    private UpdateText objectiveUI;
     // Start is called before the first frame update
     void Start()
     {
         sceneloader = GameObject.Find("GameManager").GetComponent<SceneLoader>();
+        objectiveUI = FindObjectOfType<UpdateText>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class Portal : MonoBehaviour
     {
         if (others.tag == "Player")
         {
+            objectiveUI.DisableText();
             sceneloader.LoadScene1(SceneNum);
         }
     }

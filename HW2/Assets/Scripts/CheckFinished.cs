@@ -18,6 +18,7 @@ public class CheckFinished : MonoBehaviour
 
     private bool portalActive = false; 
 
+    private UpdateText objectiveUI;
     void Start()
     {
         portal = GameObject.Find("Portal");
@@ -33,6 +34,7 @@ public class CheckFinished : MonoBehaviour
         }
         //meshRenderer.enabled = false;
         //colliders.enabled = false;
+        objectiveUI = FindObjectOfType<UpdateText>();
     }
     public void AddEnemy()
     {
@@ -46,6 +48,7 @@ public class CheckFinished : MonoBehaviour
         enemiesDefeated += 1;
         Debug.Log("Enemies killed " + enemiesDefeated);
         Debug.Log("Enemies to kill " + enemiesToKill);
+        
         if(enemiesDefeated >= enemiesToKill)
         {
             //meshRenderer.enabled = true;
@@ -54,6 +57,7 @@ public class CheckFinished : MonoBehaviour
             if (portal != null) portal.SetActive(true);
             portalActive = true;
         }
+        objectiveUI.ChangeText(enemiesDefeated, enemiesToKill);
     }
     
     public bool MaxEnemyCHecker()
@@ -61,4 +65,13 @@ public class CheckFinished : MonoBehaviour
         return !portalActive && enemiesLeft < maxEnemiesOnScreen;
     }
 
+    public int KillObj()
+    {
+        return enemiesToKill;
+    }
+
+    public int DefeatedEnemies()
+    {
+        return enemiesDefeated;
+    }
 }
