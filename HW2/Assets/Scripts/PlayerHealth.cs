@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
         }
         HpSprite = transform.Find("HPbar").GetComponent<HpBar>();
         if (HpSprite == null ) { Debug.Log("Unable to find Player HP Bar"); }
-        HpSprite.UpdateHP(curHP, totalHP); //Update Player HP Bar sprite
+        //HpSprite.UpdateHP(curHP, totalHP); //Update Player HP Bar sprite
 
         deathScreenUI = GameObject.Find("Death_Container").GetComponent<DeathScreen>();
         if (deathScreenUI == null) { Debug.Log("Unable to find DeathScreenUI"); }

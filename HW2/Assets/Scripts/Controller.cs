@@ -56,8 +56,6 @@ public class Controller : MonoBehaviour
         }
         else if (isRolling)
         {
-            // Keep rolling direction velocity active during roll
-            rb.velocity = transform.forward * rollSpeed + Vector3.up * rb.velocity.y;
         }
         else
         {
@@ -89,32 +87,47 @@ public class Controller : MonoBehaviour
 
     private IEnumerator Roll()
     {
-        isRolling = true;
-        isShooting = true;  // Prevent shooting during roll
+    isRolling = true;
+    isShooting = true;  // Prevent shooting during roll
 
-        Vector3 rollDirection;
+    Vector3 rollDirection;
 
-        if (rb.velocity.magnitude > 0.1f)
-        {
-            rollDirection = rb.velocity.normalized;  
-            transform.rotation = Quaternion.LookRotation(rollDirection);
-        }
-        else
-        {
-            rollDirection = -transform.forward;  
-            transform.rotation = Quaternion.LookRotation(rollDirection);
-        }
+    // Determine the initial roll direction based on the player's facing direction
+    if (rb.velocity.magnitude > 0.1f)
+    {
+        // Project the roll direction onto the XZ plane to ignore slopes
+        rollDirection = new Vector3(rb.velocity.x, 0, rb.velocity.z).normalized;
+        transform.rotation = Quaternion.LookRotation(rollDirection);
+    }
+    else
+    {
+        // Roll backward if not moving, also projected onto the XZ plane
+        rollDirection = new Vector3(-transform.forward.x, 0, -transform.forward.z).normalized;
+        transform.rotation = Quaternion.LookRotation(rollDirection);
+    }
 
-        rb.velocity = rollDirection * rollSpeed;
+    // Set a constant roll direction for the duration of the roll
+    Vector3 constantRollVelocity = rollDirection * rollSpeed;
 
-        animator.SetBool("Roll", true); 
+    // Apply rolling animation
+    animator.SetBool("Roll", true);
 
-        yield return new WaitForSeconds(rollDuration);
+    float elapsedTime = 0f;
+    while (elapsedTime < rollDuration)
+    {
+        // Maintain the initial roll direction without adjusting for terrain
+        rb.velocity = new Vector3(constantRollVelocity.x, rb.velocity.y, constantRollVelocity.z);
+        
+        elapsedTime += Time.deltaTime;
+        yield return null;
+    }
 
-        animator.SetBool("Roll", false); 
+    // Stop rolling animation
+    animator.SetBool("Roll", false);
 
-        isRolling = false;
-        isShooting = false;
+    // Reset rolling state
+    isRolling = false;
+    isShooting = false;
     }
 
     private IEnumerator Shoot()

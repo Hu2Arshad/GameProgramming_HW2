@@ -11,6 +11,10 @@ public class DeathScreen : MonoBehaviour
     private GameObject Player;
     private SFXController playerSFX;
     private UpdateText objectiveUI;
+
+    public AudioClip DeathSFX;
+    private AudioSource audioSource;
+
     private void Start()
     {
         mainMenuButton.gameObject.SetActive(false); // Hide button initially
@@ -18,6 +22,10 @@ public class DeathScreen : MonoBehaviour
         playerSFX = GameObject.Find("Death_Container/Hope_and_other_Delusion").GetComponent<SFXController>();
         Player.SetActive(false);
         objectiveUI = FindObjectOfType<UpdateText>();
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false; 
+        audioSource.clip = DeathSFX;
     }
 
     public void ShowDeathScreen()
@@ -27,6 +35,14 @@ public class DeathScreen : MonoBehaviour
         {
             Destroy(spawner);
         }
+
+        BGMManager bgmManager = FindObjectOfType<BGMManager>();
+        if (bgmManager != null){
+            Debug.Log("BGM deactivated");
+            bgmManager.StopBGM();
+        }
+
+        PlayDeathSFX();
         Player.SetActive(true);
         playerSFX.PlayDeath();
         objectiveUI.DisableText();
@@ -57,5 +73,18 @@ public class DeathScreen : MonoBehaviour
             Destroy(gameManager);
         }
         SceneManager.LoadScene("Homescreen");
+    }
+
+    private void PlayDeathSFX()
+    {
+        if (audioSource != null && DeathSFX != null)
+        {
+            audioSource.Play();
+            Debug.Log("Portal open SFX played");
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or DeathSFX not assigned");
+        }
     }
 }

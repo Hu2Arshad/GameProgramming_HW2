@@ -12,12 +12,19 @@ public class Winning : MonoBehaviour
     //private GameObject Player;
     //private SFXController playerSFX;
 
+    public AudioClip WinSFX;
+    private AudioSource audioSource;
+
     private void Start()
     {
         mainMenuButton.gameObject.SetActive(false); // Hide button initially
         PlayerInGame = GameObject.Find("Player");
         //Player = GameObject.Find("Death_Container/Hope_and_other_Delusion/Temp_char_for_load");
         //Player.SetActive(false);
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false; 
+        audioSource.clip = WinSFX;
     }
 
     void OnTriggerEnter(Collider others)
@@ -40,6 +47,14 @@ public class Winning : MonoBehaviour
         {
             Destroy(enemy);
         }
+        BGMManager bgmManager = FindObjectOfType<BGMManager>();
+        if (bgmManager != null){
+            Debug.Log("BGM deactivated");
+            bgmManager.StopBGM();
+        }
+
+        PlayWinSFX();
+
         //Player.SetActive(true);
         StartCoroutine(PlayWinSequence());
     }
@@ -68,5 +83,18 @@ public class Winning : MonoBehaviour
             Destroy(gameManager);
         }
         SceneManager.LoadScene("Homescreen");
+    }
+
+    private void PlayWinSFX()
+    {
+        if (audioSource != null && WinSFX != null)
+        {
+            audioSource.Play();
+            Debug.Log("Portal open SFX played");
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or WinSFX not assigned");
+        }
     }
 }

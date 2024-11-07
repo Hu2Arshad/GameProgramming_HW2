@@ -17971,6 +17971,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdb6088062cd7849b0717f9bf403863, type: 3}
+--- !u!1 &890934835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890934837}
+  - component: {fileID: 890934836}
+  m_Layer: 0
+  m_Name: BGMManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &890934836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890934835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b662c84e04a3fc946905878be5e6c206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmClip: {fileID: 8300000, guid: 4643df28f0856ab4b90453ce273044df, type: 3}
+  volume: 1.6
+--- !u!4 &890934837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890934835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -30.69308, y: -88.040344, z: 109.48353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892733375
 GameObject:
   m_ObjectHideFlags: 0
@@ -22620,7 +22666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64958374299882007, guid: 3abeb8eb8e138844b95c4b39cde68a00, type: 3}
       propertyPath: m_Depth
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3abeb8eb8e138844b95c4b39cde68a00, type: 3}
@@ -24393,6 +24439,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7407771221903152587, guid: f6f9159847607df4ea76cbe2c9d856f1, type: 3}
+      propertyPath: DeathSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 55d3a5b440ca4a6439224bea5e7d51d8, type: 3}
     - target: {fileID: 7407771221903152589, guid: f6f9159847607df4ea76cbe2c9d856f1, type: 3}
       propertyPath: m_Name
       value: Death_Container
@@ -45172,6 +45222,10 @@ PrefabInstance:
       propertyPath: enemiesToKill
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3089182173449876648, guid: f211f646a8dbcf144adb5475e00c2a5f, type: 3}
+      propertyPath: portalOpenSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: b4172f3e47d8217428965f0e4c52d9bb, type: 3}
     - target: {fileID: 3089182173449876648, guid: f211f646a8dbcf144adb5475e00c2a5f, type: 3}
       propertyPath: maxEnemiesOnScreen
       value: 4
