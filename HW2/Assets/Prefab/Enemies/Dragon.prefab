@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 6262539082632351239}
   m_Layer: 0
   m_Name: Dragon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1400,12 +1400,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 30
   attackCooldown: 6
+  aoeRange: 6
+  aoeDamage: 25
   HP: 70
   maxHP: 70
   bulletPrefab: {fileID: 5406714865639767930, guid: aa7d57a493d9e62419b9a277e6f0e857, type: 3}
   gunBarrel1: {fileID: 2201654571895820701}
   gunBarrel2: {fileID: 2201654573234648177}
   gunBarrel3: {fileID: 2201654572544614905}
+  aoeTransform: {fileID: 0}
   bulletSpeed: 5
 --- !u!114 &6262539082632351239
 MonoBehaviour:
