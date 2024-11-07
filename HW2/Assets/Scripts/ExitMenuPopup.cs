@@ -28,4 +28,9 @@ public class ExitMenuPopup : MonoBehaviour
         popup.enabled = false;
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();    
+    }
+
 }
