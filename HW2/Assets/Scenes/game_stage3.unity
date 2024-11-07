@@ -812,11 +812,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1966275260463232063, guid: 80762d56729692b46949b5134e53f4b2, type: 3}
       propertyPath: Interval
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1966275260463232063, guid: 80762d56729692b46949b5134e53f4b2, type: 3}
       propertyPath: maxSpawn
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80762d56729692b46949b5134e53f4b2, type: 3}
@@ -1391,6 +1391,14 @@ PrefabInstance:
     - target: {fileID: 8109524807748005954, guid: 2dab0bf2543493845aeb0d73abcab989, type: 3}
       propertyPath: m_Name
       value: Golem Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109524807748005957, guid: 2dab0bf2543493845aeb0d73abcab989, type: 3}
+      propertyPath: Interval
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109524807748005957, guid: 2dab0bf2543493845aeb0d73abcab989, type: 3}
+      propertyPath: maxSpawn
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8109524807748005961, guid: 2dab0bf2543493845aeb0d73abcab989, type: 3}
       propertyPath: m_RootOrder
@@ -2230,11 +2238,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3758856808873986832, guid: 654b9d9ec80a32846a8847bc83d3dd42, type: 3}
       propertyPath: Interval
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3758856808873986832, guid: 654b9d9ec80a32846a8847bc83d3dd42, type: 3}
       propertyPath: maxSpawn
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3758856808873986839, guid: 654b9d9ec80a32846a8847bc83d3dd42, type: 3}
       propertyPath: m_Name
@@ -2375,11 +2383,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3758856808873986832, guid: 654b9d9ec80a32846a8847bc83d3dd42, type: 3}
       propertyPath: Interval
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3758856808873986832, guid: 654b9d9ec80a32846a8847bc83d3dd42, type: 3}
       propertyPath: maxSpawn
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3758856808873986839, guid: 654b9d9ec80a32846a8847bc83d3dd42, type: 3}
       propertyPath: m_Name
@@ -2700,7 +2708,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3089182173449876648, guid: f211f646a8dbcf144adb5475e00c2a5f, type: 3}
       propertyPath: enemiesToKill
-      value: 18
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3089182173449876649, guid: f211f646a8dbcf144adb5475e00c2a5f, type: 3}
       propertyPath: m_RootOrder
@@ -3349,11 +3357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7795483340868072631, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001604501
+      value: 0.00000001604501
       objectReference: {fileID: 0}
     - target: {fileID: 7795483340868072631, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000063066374
+      value: -0.0000000063066374
       objectReference: {fileID: 0}
     - target: {fileID: 7795483341086001708, guid: 660faa364395f3f48ad7a4352f0dfa25, type: 3}
       propertyPath: m_LocalPosition.x
