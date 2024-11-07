@@ -8,12 +8,14 @@ public class Winning : MonoBehaviour
 {
     public Button mainMenuButton;
     private GameObject GameManager;
+    private GameObject PlayerInGame;
     //private GameObject Player;
     //private SFXController playerSFX;
 
     private void Start()
     {
         mainMenuButton.gameObject.SetActive(false); // Hide button initially
+        PlayerInGame = GameObject.Find("Player");
         //Player = GameObject.Find("Death_Container/Hope_and_other_Delusion/Temp_char_for_load");
         //Player.SetActive(false);
     }
@@ -28,6 +30,16 @@ public class Winning : MonoBehaviour
 
     public void ShowWinScreen()
     {
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        foreach (GameObject spawner in spawners)
+        {
+            Destroy(spawner);
+        }
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
         //Player.SetActive(true);
         StartCoroutine(PlayWinSequence());
     }

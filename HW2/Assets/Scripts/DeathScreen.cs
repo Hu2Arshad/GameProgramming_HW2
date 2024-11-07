@@ -21,6 +21,11 @@ public class DeathScreen : MonoBehaviour
 
     public void ShowDeathScreen()
     {
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        foreach (GameObject spawner in spawners)
+        {
+            Destroy(spawner);
+        }
         Player.SetActive(true);
         playerSFX.PlayDeath();
         StartCoroutine(PlayDeathSequence());

@@ -91,10 +91,10 @@ public class PlayerHealth : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
-            enemy.SetActive(false);
+             Destroy(enemy);
         }
 
-        Player.SetActive(false);
+         Destroy(Player);
         
         if (deathScreenUI != null)
         {
